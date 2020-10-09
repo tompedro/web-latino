@@ -1,5 +1,5 @@
 import React, {Component} from 'react' 
-import {TouchableOpacity, Image, View, Button } from 'react-native' 
+import {TouchableOpacity, Image, Button } from 'react-native-web' 
 import styles from '../res/styles'
 import words from '../res/words.json'
 import Init from './Init'
@@ -161,13 +161,13 @@ class App extends Component {
 
   render(){
     return (
-      <View style={styles.container}>
+      <div style={styles.container}>
         {
           this.state.init == 0 ? (
             <Init setMode = {this.setMode}/>
           ) : (
             this.state.init == 1 ? (
-              <View style={styles.sView}>
+              <div style={styles.sView}>
                 <TouchableOpacity onPress={() => {this.setState({init: 0})}}>
                   <Image source = {require('../res/arrow.png')} style={styles.arrow}/>
                 </TouchableOpacity>
@@ -184,23 +184,23 @@ class App extends Component {
                 }
 
                 
-              </View>
+              </div>
             ) : (
               this.state.init == 2 ? (
                 <Recap errors = {this.state.errors} />  
               ) : (
-                <View style={styles.sView}>
+                <div style={styles.sdiv}>
                   <TouchableOpacity onPress={() => {this.setState({init: 0})}}>
                     <Image source = {require('../res/arrow.png')} style={styles.arrow}/>
                   </TouchableOpacity>
 
                   <Dictionary />
-                </View>
+                </div>
               )
             )
           )
         }
-      </View>
+      </div>
     ) 
     
   }

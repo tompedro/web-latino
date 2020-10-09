@@ -17,26 +17,32 @@ export default class Dictionary extends Component{
 
     render(){
         return(
-            <View >
+            <View style = {styles.container}>
                 <View style = {styles.modeContainer}>
                     <Text style = {styles.titleMode}>SELEZIONA SU COSA TI VUOI ALLENARE</Text>
                     <Text>{'\n'}</Text>
                     <View style={styles.checkboxContainer}>
-                        <Checkbox 
-                            status={this.state.adj ? 'checked' : 'unchecked'}
-                            onPress={() => this.setState({adj: !this.state.adj})}/>
+                        <input 
+                            type="checkbox"
+                            checked={this.state.adj}
+                            disabled = {false}
+                            onChange={() => this.setState({adj: !this.state.adj})}/>
                         <Text style= {styles.label}>AGGETTIVI E PRONOMI</Text>
                     </View>
                     <View style={styles.checkboxContainer}>
-                        <Checkbox 
-                            status={this.state.verbs ? 'checked' : 'unchecked'}
-                            onPress={() => this.setState({verbs: !this.state.verbs})}/>
+                        <input 
+                            type="checkbox"
+                            disabled = {false}
+                            checked={this.state.verbs}
+                            onChange={() => this.setState({verbs: !this.state.verbs})}/>
                         <Text style= {styles.label}>VERBI</Text>
                     </View>
                     <View style={styles.checkboxContainer}>
-                        <Checkbox 
-                            status={this.state.nouns ? 'checked' : 'unchecked'}
-                            onPress={() => this.setState({nouns: !this.state.nouns})}/>
+                        <input 
+                            type="checkbox"
+                            disabled = {false}
+                            checked={this.state.nouns}
+                            onChange={() => this.setState({nouns: !this.state.nouns})}/>
                         <Text style= {styles.label}>NOMI</Text>
                     </View>
                     <Button disabled = {!this.state.adj && !this.state.verbs && !this.state.nouns} onPress= {() => this.props.submit([this.state.adj,this.state.verbs,this.state.nouns])} title = {"GIOCA"}/>

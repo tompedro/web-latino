@@ -17,9 +17,10 @@ export default class Dictionary extends Component{
     }
 
     search(){
-        fetch('https://www.dizionario-latino.com/dizionario-latino-italiano.php?parola='+this.state.value+'&md=ff')
+        fetch('https://cors-anywhere.herokuapp.com/https://www.dizionario-latino.com/dizionario-latino-italiano.php?parola='+this.state.value+'&md=ff')
             .then(data => data.text())
             .then(data => {
+                alert(data)
                 if(data.includes('risultati')){
                     this.setState({state: 0}, () => {this.parse(data)})
                 }else if(data.includes('myth')){
@@ -54,7 +55,7 @@ export default class Dictionary extends Component{
     }
 
     searchWord(link){
-        fetch('https://www.dizionario-latino.com/' + link)
+        fetch('https://cors-anywhere.herokuapp.com/https://www.dizionario-latino.com/' + link)
             .then(data => data.text())
             .then(data => this.setState({state: 1}, () => {this.parseWord(data,link)}))
     }
@@ -117,7 +118,7 @@ export default class Dictionary extends Component{
             }
         };
 
-        request.open('POST', 'https://www.dizionario-latino.com/dizionario-latino-flessione.php?lemma='+value+'&md=ff');
+        request.open('POST', 'https://cors-anywhere.herokuapp.com/https://www.dizionario-latino.com/dizionario-latino-flessione.php?lemma='+value+'&md=ff');
         request.send();
     }
 
@@ -168,7 +169,7 @@ export default class Dictionary extends Component{
     render(){
         const { width, height } = Dimensions.get('window')
         return(
-            <View>
+            <View style = {styles.viewContainer2}>
                 <TextInput style={styles.searchTextInput} 
                             onChangeText={text => {
                                 this.setState({value: text})
@@ -194,7 +195,7 @@ export default class Dictionary extends Component{
                                 bottom: 0,
                                 right: 30,
                             }}>
-                            <View style = {styles.viewContainer}>
+                            <View style = {styles.viewContainer2}>
                                 { this.state.lemmas.map((lemma,key) => {
                                     return(
                                         <View style = {styles.scrollView}>

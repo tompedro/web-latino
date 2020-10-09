@@ -1,5 +1,5 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native' 
-const styles = StyleSheet.create({
+
+const styles = {
     container: {
       flex: 1,
       justifyContent: 'center',
@@ -7,6 +7,10 @@ const styles = StyleSheet.create({
     },
     viewContainer: {
       width: '90%'
+    },
+    viewContainer2: {
+      width: '90%',
+      alignItems: 'center'
     },
     containerWord: {
       width: '90%',
@@ -22,7 +26,7 @@ const styles = StyleSheet.create({
       width: 300 
     },
     title:{
-      marginTop: '50%',
+      marginTop: '10%',
       fontSize: 40,
       fontWeight: "bold"
     },
@@ -86,7 +90,9 @@ const styles = StyleSheet.create({
     arrow: {
       width: 20,
       height: 20,
-      marginTop: '20%'
+      marginTop: '20%',
+      alignSelf: 'center',
+      marginRight: '40%'
     },
     dataWrapper: {
       marginTop: -1
@@ -138,6 +144,6 @@ const styles = StyleSheet.create({
       marginTop: '30%',
       marginRight: '60%'
     }
-  }) 
+  }
 
 export default styles

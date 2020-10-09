@@ -1,6 +1,5 @@
 import React , {Component} from 'react'
 import {StyleSheet, View, Button, Text,TouchableOpacity,Image } from 'react-native' 
-import {Card} from 'react-native-elements'
 
 export default class Singleplayer extends Component{
 
@@ -23,8 +22,7 @@ export default class Singleplayer extends Component{
         return(
             <View style={styles.initContainer}>
                 <Text style = {styles.title}>QUIZ LATINO</Text>
-                <TouchableOpacity onPress={() => {this.props.setMode(0)}}>
-                    <Card>
+                <TouchableOpacity onPress={() => {this.props.setMode(0)}} style = {{alignItems:'center'}}>
                         <View style = {styles.element}>
                                 <Image source = {require('../res/cesare1.jpg')} style={styles.cesareImage}/>
                             <View>
@@ -33,10 +31,8 @@ export default class Singleplayer extends Component{
                             </View>
                             
                         </View>
-                    </Card>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {this.props.setMode(1)}}>
-                    <Card>
+                <TouchableOpacity onPress={() => {this.props.setMode(1)}} style = {{alignItems:'center'}}>
                         <View style = {styles.element}>
                         <View>
                             <Text style = {styles.littleTest}>IN ITALIANO                     </Text>
@@ -47,10 +43,8 @@ export default class Singleplayer extends Component{
                         
                             
                         </View>
-                    </Card>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => {this.props.setMode(2)}}>
-                    <Card>
+                <TouchableOpacity onPress={() => {this.props.setMode(2)}} style = {{alignItems:'center'}}>
                         <View style = {styles.element}>
                             <Image source = {require('../res/dictionary.png')} style={styles.dictionaryImage}/>
                             <View>
@@ -58,7 +52,6 @@ export default class Singleplayer extends Component{
                                 <Text style = {styles.text}>Consulta il dizionario!</Text>
                             </View>
                         </View>
-                    </Card>
                 </TouchableOpacity>
             </View>
         )

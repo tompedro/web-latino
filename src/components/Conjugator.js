@@ -1,6 +1,5 @@
 import React , {Component} from 'react'
 import {TextInput, View, Button, Text, ScrollView, TouchableOpacity, Dimensions, Image } from 'react-native' 
-import { Table, Row } from 'react-native-table-component'
 import styles from '../res/styles'
 
 export default class Dictionary extends Component{
@@ -17,34 +16,32 @@ export default class Dictionary extends Component{
                 <View>
                     <ScrollView style={styles.dataWrapper}>
                         <View style= {styles.flexionView}>
-                            <Table style={styles.conjView}>
-                                <Row data = {["DECLINAZIONE DI " + this.props.lemma.toUpperCase()]} textStyle={styles.titleTable} />
-                                {
-                                    this.props.flexion.map(e => {
-                                        if(e.includes("$")){
-                                            e = e.replace("$ ","").replace("£ ","")
-                                            return(
-                                                <View>
-                                                    <Row data = {['\n']} />
-                                                    <Row data = {[e]} textStyle={styles.secondHeaderTable}/>
-                                                </View>
-                                            )
-                                        }else if(e.includes("£")){
-                                            e = e.replace("£ ","")
-                                            return(
-                                                <View>
-                                                    <Row data = {['\n']} />
-                                                    <Row data = {[e]} textStyle={styles.headerTable}/>
-                                                </View>
-                                            )
-                                        }else{
-                                            return(
-                                                <Row data = {[e]} />
-                                            )
-                                        }
-                                    })
-                                }
-                            </Table>
+                            <Text textStyle={styles.titleTable}>{"DECLINAZIONE DI " + this.props.lemma.toUpperCase()}</Text>
+                            {
+                                this.props.flexion.map(e => {
+                                    if(e.includes("$")){
+                                        e = e.replace("$ ","").replace("£ ","")
+                                        return(
+                                            <View>
+                                                <Text>{'\n'} </Text>
+                                                <Text textStyle={styles.secondHeaderTable}> {e} </Text>
+                                            </View>
+                                        )
+                                    }else if(e.includes("£")){
+                                        e = e.replace("£ ","")
+                                        return(
+                                            <View>
+                                                <Text>{'\n'}</Text>
+                                                <Text textStyle={styles.headerTable}>{e}</Text>
+                                            </View>
+                                        )
+                                    }else{
+                                        return(
+                                            <Text>{e}</Text>
+                                        )
+                                    }
+                                })
+                            }
                         </View>
                     </ScrollView>
                 </View>
